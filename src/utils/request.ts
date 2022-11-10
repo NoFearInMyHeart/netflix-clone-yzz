@@ -1,7 +1,9 @@
 // const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
 const API_KEY = '8caa07dec45eb4d09127476788d6bf05';
-// const BASE_URL = 'https://api.themoviedb.org/3';
-const BASE_URL = 'http://localhost:8888';
+const BASE_URL =
+  process.env.NODE_ENV === 'development'
+    ? 'http://localhost:8888'
+    : 'https://api.themoviedb.org/3';
 
 const requests = {
   fetchTrending: `${BASE_URL}/trending/all/week?api_key=${API_KEY}&language=en-US`,
