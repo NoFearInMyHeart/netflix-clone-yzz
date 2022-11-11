@@ -21,9 +21,9 @@ interface IAuth {
 
 const AuthContext = createContext<IAuth>({
   user: null,
-  signUp: async () => {},
-  signIn: async () => {},
-  logout: async () => {},
+  signUp: async () => undefined,
+  signIn: async () => undefined,
+  logout: async () => undefined,
   error: null,
   loading: false,
 });
@@ -35,7 +35,7 @@ interface AuthProviderProps {
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState<User | null>(null);
-  const [error, setError] = useState(null);
+  const [error] = useState(null);
   const [initialLoading, setInitialLoading] = useState(true);
   const router = useRouter();
 

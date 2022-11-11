@@ -1,11 +1,11 @@
-import Layout from '@/components/layout';
+import Layout from '../components/layout';
 import Image from 'next/image';
 import { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import useAuth from "@/hooks/useAuth";
+import useAuth from "../hooks/useAuth";
 interface Inputs {
-  email: string
-  password: string
+  email: string;
+  password: string;
 }
 
 export default function Login() {
