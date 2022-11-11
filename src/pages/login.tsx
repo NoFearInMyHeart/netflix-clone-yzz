@@ -2,7 +2,7 @@ import Layout from '../components/layout';
 import Image from 'next/image';
 import { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import useAuth from "../hooks/useAuth";
+import useAuth from '../hooks/useAuth';
 interface Inputs {
   email: string;
   password: string;
@@ -10,14 +10,14 @@ interface Inputs {
 
 export default function Login() {
   const [login, setLogin] = useState(false);
-  const {signIn, signUp} = useAuth();
+  const { signIn, signUp } = useAuth();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async (params) => {
-    const {email, password} = params;
+    const { email, password } = params;
     if (login) {
       await signIn(email, password);
     } else {
@@ -74,15 +74,15 @@ export default function Login() {
           </div>
 
           <button
-              className="w-full rounded bg-[#e50914] py-3 font-semibold"
-              onClick={() => setLogin(true)}>
+            className="w-full rounded bg-[#e50914] py-3 font-semibold"
+            onClick={() => setLogin(true)}>
             Sign In
           </button>
           <div className="text-[gray]">
             New To Netflix ?{' '}
             <button type="submit"
-                    className="text-white hover:underline"
-                    onClick={() => setLogin(false)}>
+              className="text-white hover:underline"
+              onClick={() => setLogin(false)}>
               Sign up now
             </button>
           </div>
