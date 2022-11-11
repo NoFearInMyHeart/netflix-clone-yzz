@@ -16,13 +16,14 @@ export default function Login() {
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = async ({email, password}) => {
+  const onSubmit: SubmitHandler<Inputs> = async (params) => {
+    const {email, password} = params;
     if (login) {
       await signIn(email, password);
     } else {
       await signUp(email, password);
     }
-  }
+  };
   return (
     <Layout title="Netflix">
       <div className="relative flex h-screen w-screen flex-col bg-black md:items-center md:justify-center md:bg-transparent">
@@ -72,13 +73,16 @@ export default function Login() {
             </label>
           </div>
 
-          <button className="w-full rounded bg-[#e50914] py-3 font-semibold" onClick={() => setLogin(true)}>
+          <button
+              className="w-full rounded bg-[#e50914] py-3 font-semibold"
+              onClick={() => setLogin(true)}>
             Sign In
           </button>
-
           <div className="text-[gray]">
             New To Netflix ?{' '}
-            <button type="submit" className="text-white hover:underline" onClick={() => setLogin(false)}>
+            <button type="submit"
+                    className="text-white hover:underline"
+                    onClick={() => setLogin(false)}>
               Sign up now
             </button>
           </div>
