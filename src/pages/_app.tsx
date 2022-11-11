@@ -1,7 +1,12 @@
 import { AppProps } from 'next/app';
-
 import '@/styles/index.css';
+import { AuthProvider } from '@/hooks/useAuth';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  return (
+    // HOC
+    <AuthProvider>
+      <Component {...pageProps} />
+    </AuthProvider>
+  );
 }
