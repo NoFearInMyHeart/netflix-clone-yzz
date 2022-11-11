@@ -75,14 +75,17 @@ export default function Login() {
 
           <button
             className="w-full rounded bg-[#e50914] py-3 font-semibold"
-            onClick={() => setLogin(true)}>
+            onClick={() => setLogin(true)}
+          >
             Sign In
           </button>
           <div className="text-[gray]">
             New To Netflix ?{' '}
-            <button type="submit"
+            <button
+              type="submit"
               className="text-white hover:underline"
-              onClick={() => setLogin(false)}>
+              onClick={() => setLogin(false)}
+            >
               Sign up now
             </button>
           </div>
